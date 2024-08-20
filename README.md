@@ -19,14 +19,14 @@ This demo simulates file upload functionality to showcase the use of the Prometh
 - **Simple Client Library**: The `prometheus_client` library provides tools for instrumenting code and exposing metrics to Prometheus.
 - **CollectorRegistry**: This is used to register and collect metrics. In this demo, it collects histogram data on simulated file upload durations.
 
-### Types of Metrics
+    #### Types of Metrics
 
-The `prometheus_client` library provides several types of metrics that can be collected using `CollectorRegistry`, including:
+    The `prometheus_client` library provides several types of metrics that can be collected using `CollectorRegistry`, including:
 
-- **Counter**: A monotonically increasing counter that is used to count events or occurrences. For example, the number of requests received by the server.
-- **Gauge**: A metric that can go up and down. It is used to measure values like current memory usage or active connections.
-- **Histogram**: A metric that samples observations (e.g., durations) and counts them in configurable buckets. Useful for measuring request durations or sizes.
-- **Summary**: Similar to a histogram but provides quantiles and other statistical information about observations.
+    - **Counter**: A monotonically increasing counter that is used to count events or occurrences. For example, the number of requests received by the server.
+    - **Gauge**: A metric that can go up and down. It is used to measure values like current memory usage or active connections.
+    - **Histogram**: A metric that samples observations (e.g., durations) and counts them in configurable buckets. Useful for measuring request durations or sizes.
+    - **Summary**: Similar to a histogram but provides quantiles and other statistical information about observations.
 
 ### Running the Demo
 
@@ -45,6 +45,23 @@ The `prometheus_client` library provides several types of metrics that can be co
 3. **Access the Endpoints**:
     - Simulate a file upload by sending a POST request to `http://localhost:5000/file-upload`.
     - View the collected metrics by visiting `http://localhost:5000/metrics`.
+   
+   To test the file upload simulation, use the following commands:
+   #### Using curl (Command Line):
+   ```
+    curl -X POST http://localhost:5000/file-upload
+   ```
+   ```
+    curl http://localhost:5000/metrics
+   ```
+
+   #### Using Invoke-RestMethod (PowerShell):
+   ```
+    Invoke-RestMethod -Method Post -Uri http://localhost:5000/file-upload
+   ```
+   ```
+    Invoke-RestMethod -Uri http://localhost:5000/metrics
+   ```
 
 ### Extending the Demo
 
